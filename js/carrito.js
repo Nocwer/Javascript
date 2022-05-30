@@ -237,3 +237,14 @@ class Carrito {
         }
     }
 }
+
+document.addEventListener('DOMContentLoaded', e => { fetchData() });
+cards.addEventListener('click', e => { addCarrito(e) });
+items.addEventListener('click', e => { btnAumentarDisminuir(e) })
+
+const fetchData = async () => {
+    const res = await fetch('api.json');
+    const data = await res.json()
+    // console.log(data)
+    pintarCards(data)
+}
